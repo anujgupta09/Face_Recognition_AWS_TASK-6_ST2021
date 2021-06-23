@@ -1,20 +1,17 @@
-driver = webdriver.Chrome('/Users/shelar/Downloads/chromedriver')
-
-driver.get("https://web.whatsapp.com/")
-
-sleep(20)
-
-# input("Plese scan qr code and press: ")
-
-RM = driver.find_element_by_xpath('//span[@title = "Bhushan"]')
-
-RM.click()
-
-testinput = driver.find_element_by_xpath("//*[@id='main']/footer/div[1]/div[2]/div/div[2]")
-            testinput.send_keys("hello bhushan this is the automation test message ")
-
-sleep(2)
-
-testinput.send_keys(Keys.RETURN)
-            
-print("\t\t\t\n********************** Whatsapp Successfully Sended *********************************\n")
+def send_whatsup_msg(whatsup_no):
+    
+    from datetime import datetime
+    obj_now = datetime.now()
+    hour = obj_now.hour
+    minute = obj_now.minute
+    minute_plus1 = minute+1
+    
+    final_no = '+91'+whatsup_no
+    import pywhatkit
+    try:
+        pywhatkit.sendwhatmsg(final_no,
+                        "Whatsup Done Correctly",
+                        hour, minute_plus1)
+        print("Message Sent","to",whatsup_no)
+    except:
+        print("An Unexpected Error!")
