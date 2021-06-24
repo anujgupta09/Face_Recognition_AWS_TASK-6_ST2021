@@ -44,7 +44,7 @@ def mail_function():
         s.quit()
         time.sleep(1)
 
-        print("Mail send")
+        #print("Mail send")
         
 mail_function()
 #---------------------------------------------------
